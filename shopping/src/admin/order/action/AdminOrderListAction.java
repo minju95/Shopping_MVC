@@ -33,6 +33,7 @@ public class AdminOrderListAction implements Action {
 		request.setAttribute("page", page);
 		request.setAttribute("maxpage", maxpage);
 		request.setAttribute("startpage", startpage);
+		request.setAttribute("endpage", endpage);
 		request.setAttribute("ordercount", endpage);
 		request.setAttribute("orderlist", orderlist);
 		
