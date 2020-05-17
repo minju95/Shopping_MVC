@@ -46,17 +46,17 @@ public class AdminOrderDAO {
 	
 	public List getOrderList(int page, int limit) {
 		String order_list_sql = 
-				"select * from (select rownum rnum,ORDER_NUM,"+
-						"ORDER_TRADE_NUM,ORDER_TRANS_NUM,ORDER_GOODS_NUM,"+
-						"ORDER_GOODS_AMOUNT,ORDER_MEMBER_ID,"+
-						"ORDER_RECEIVE_NAME,ORDER_RECEIVE_ADDR1,"+
-						"ORDER_RECEIVE_ADDR2,ORDER_RECEIVE_PHONE,"+
-						"ORDER_RECEIVE_MOBILE,ORDER_MEMO,"+
-						"ORDER_SUM_MONEY,ORDER_TRADE_TYPE,"+
-						"ORDER_TRADE_DATE,ORDER_TRADE_PAYER,"+
+				"select * from (select rownum rnum,ORDER_NUM, "+
+						"ORDER_TRADE_NUM,ORDER_TRANS_NUM,ORDER_GOODS_NUM, "+
+						"ORDER_GOODS_AMOUNT,ORDER_MEMBER_ID, "+
+						"ORDER_RECEIVE_NAME,ORDER_RECEIVE_ADDR1, "+
+						"ORDER_RECEIVE_ADDR2,ORDER_RECEIVE_PHONE, "+
+						"ORDER_RECEIVE_MOBILE,ORDER_MEMO, "+
+						"ORDER_SUM_MONEY,ORDER_TRADE_TYPE, "+
+						"ORDER_TRADE_DATE,ORDER_TRADE_PAYER, "+
 						"ORDER_DATE,ORDER_STATUS from "+
 						"(select * from GOODS_ORDER order by "+
-						"ORDER_DATE desc)) where rnum>=? and rnum<=?";
+						"ORDER_DATE desc)) where rnum>=? and rnum<=? ";
 		List orderlist = new ArrayList();
 		
 		int startrow = (page-1)*10+1;
@@ -91,6 +91,7 @@ public class AdminOrderDAO {
 
 				orderlist.add(order);
 			}
+			return orderlist;
 			
 		} catch(SQLException e) {
 			e.printStackTrace();
